@@ -2,9 +2,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 // Array of images (Make sure they exist in /src/images/)
-import ProfilePic1 from "../images/bluePP.png";
-import ProfilePic2 from "../images/whitePP.png";
-import ProfilePic3 from "../images/redPP.png";
+import ProfilePic1 from "../../public/images/bluePP.png";
+import ProfilePic2 from "../../public/images/whitePP.png";
+import ProfilePic3 from "../../public/images/redPP.png";
 
 const images = [ProfilePic1, ProfilePic2, ProfilePic3]; // Add as many as you want
 
