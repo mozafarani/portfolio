@@ -49,7 +49,11 @@ const ProjectCard = ({
 
           {/* Links */}
           <div className="mt-6 flex items-center gap-6">
-            {link && (
+            {!link || link === "#" ? (
+              <span className="text-primary font-semibold flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg">
+                Private
+              </span>
+            ) : (
               <Link
                 href={link}
                 className="text-primary font-semibold flex items-center gap-2 bg-primary/10 px-4 py-2 rounded-lg hover:bg-primary/20 transition"

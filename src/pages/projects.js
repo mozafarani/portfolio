@@ -3,8 +3,8 @@ import { useState, useRef } from "react";
 import ProjectCard from "../components/Projects/ProjectCard";
 import studentResume from "../../public/images/studentresume.png";
 import syllamate from "../../public/images/Syllamate.png";
-// import legoInventory from "../../public/images/lego-inventory-api.jpg";
-// import qaForum from "../../public/images/qa-forum.jpg";
+import skryfall from "../../public/images/skryfallAPI.png";
+import momentum from "../../public/images/momentum.png";
 
 const projects = [
   {
@@ -12,8 +12,8 @@ const projects = [
     description:
       "An open-source project that streamlines resume creation for students, featuring an efficient JSON parsing algorithm that reduces data entry time by 50%.",
     image: studentResume,
-    link: "#",
-    github: "https://github.com/mozafarani",
+    link: "https://www.youtube.com/watch?v=eZK-8_XqR90",
+    github: "https://github.com/open-uofa/studentresume",
     technologies: [
       "ReactJS",
       "FastAPI",
@@ -28,27 +28,34 @@ const projects = [
       "A tool that converts syllabus due dates into a calendar file, increasing efficiency by 17%. Won 1st place in the University of Alberta’s Back to School Hackathon.",
     image: syllamate,
     link: "#",
-    github: "https://github.com/mozafarani",
+    github: "https://github.com/prestonling/due-date-finder",
     technologies: ["ReactJS", "Flask", "Python"],
   },
   {
-    title: "Lego Inventory API",
+    title: "Skryfall (Card Game) API",
     description:
-      "REST API built with Django to manage Lego set listings, supporting sorting, new entries, and flexible updates using PATCH requests.",
-    image: "/legoInventory",
+      "Integrated Scryfall's API to enable seamless Magic: The Gathering card search. Optimized caching to reduce API calls by 40%, improving performance.",
+    image: skryfall,
     link: "#",
     github: "https://github.com/mozafarani",
-    technologies: ["Django", "SQLite", "Cybera", "REST API", "JSON"],
+    technologies: ["Typescript", "ReactJS", "NodeJS", "Axois", "Jest"],
   },
 
   {
-    title: "Interactive Q&A Forum Platform",
+    title: "Momentum",
     description:
-      "A MongoDB-powered interactive Q&A forum with voting, featuring a custom-built indexing system that improved search speed by 70%.",
-    image: "/aForum",
-    link: "#",
-    github: "https://github.com/mozafarani",
-    technologies: ["Python", "MongoDB", "JSON", "Agile", "CLI"],
+      "A habit-tracking app that lets users track, share, and visualize progress with a color-coded calendar and interactive stats. Built with a focus on user motivation, social accountability, and intuitive design.",
+    image: momentum,
+    link: "https://github.com/CMPUT301F21T37/Momentum/wiki",
+    github: "https://github.com/CMPUT301F21T37/Momentum",
+    technologies: [
+      "Java",
+      "JUnit",
+      "Android Studio",
+      "Figma",
+      "Firebase",
+      "Git",
+    ],
   },
 ];
 
@@ -63,7 +70,7 @@ export default function ProjectsPage() {
     }
   };
   return (
-    <div className="min-h-screen bg-background text-foreground p-8 mt-24">
+    <div className="min-h-screen bg-background text-foreground p-8 mt-24 -mb-40">
       <div className="flex justify-between items-center mb-20 px-32 -mx-20">
         {/* Left: Title & Description */}
         <div>
