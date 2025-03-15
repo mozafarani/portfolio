@@ -1,5 +1,6 @@
 import ProfileSlideshow from "./ProfileSlideshow";
 
+
 const Hero = () => {
   return (
     <section className="relative flex items-center justify-between min-h-screen mx-10 -my-10 text-foreground px-12">

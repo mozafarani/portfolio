@@ -3,7 +3,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from "react-icons/fa";
 
 const Navbar = () => {
   return (
-    <nav className="relative flex justify-between items-center px-12 py-6 bg-background text-foreground">
+    <nav className="relative flex justify-between items-center px-12 py-6 bg-background text-foreground mb-10">
       {/* Left Side (Logo) */}
 
       <Link
@@ -13,24 +13,7 @@ const Navbar = () => {
         <span>mozafarani/portfolio</span>
       </Link>
 
-      {/* Center (Navigation Links) */}
-      <ul className="flex space-x-8 text-2xl font-medium ">
-        <li>
-          <Link href="projects" className="hover:text-primary transition">
-            Projects
-          </Link>
-        </li>
-        <li>
-          <Link href="skills" className="hover:text-primary transition">
-            Skills
-          </Link>
-        </li>
-        <li>
-          <Link href="contact" className="hover:text-primary transition">
-            Contact
-          </Link>
-        </li>
-      </ul>
+
 
       {/* Right Side (Social Icons) */}
       <div className="flex space-x-9 text-3xl">
