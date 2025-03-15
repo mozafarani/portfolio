@@ -49,7 +49,7 @@ export default function ContactMe() {
   
 
   return (
-    <div className="relative flex items-center justify-between min-h-screen mx-auto text-foreground px-12">
+    <div className="relative flex items-center justify-between min-h-screen mx-10 -my-10 text-foreground px-12">
       <div className="max-w-3xl w-full space-y-6">
         {/* Contact Title */}
         <h2 className="text-5xl font-bold text-left">Let&apos;s Connect</h2>

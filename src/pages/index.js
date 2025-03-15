@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <div className="ml-4 space-y-6">
+    <div className="ml-4">
       <Hero />
       <ProjectsPage />
       <ContactMe />
