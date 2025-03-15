@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import emailjs from "emailjs-com";
 import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from "react-icons/fa";
 
 const quotes = [
