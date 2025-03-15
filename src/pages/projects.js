@@ -62,14 +62,13 @@ export default function ProjectsPage() {
       scrollRef.current.scrollLeft += scrollAmount;
     }
   };
-
   return (
     <div className="min-h-screen bg-background text-foreground p-8 mt-24">
-      <div className="flex justify-between items-center mb-20 px-32 ">
+      <div className="flex justify-between items-center mb-20 px-32 -mx-20">
         {/* Left: Title & Description */}
         <div>
-          <h2 className="text-4xl font-bold text-left">Featured Projects</h2>
-          <p className="text-lg text-left text-foreground/70 mt-2">
+          <h2 className="text-5xl font-bold text-left">Featured Projects</h2>
+          <p className="text-xl text-left text-foreground/70 mt-2">
             A collection of my best projects showcasing backend, frontend, and
             AI development.
           </p>
