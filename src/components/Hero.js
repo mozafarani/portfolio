@@ -1,4 +1,4 @@
-import ProfileSlideshow from "./ProfileSlideshow";
+import ProfileSlideshow from "./Profile/ProfileSlideshow";
 
 
 const Hero = () => {

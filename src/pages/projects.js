@@ -70,7 +70,7 @@ export default function ProjectsPage() {
     }
   };
   return (
-    <div className="min-h-screen bg-background text-foreground p-8 mt-24 -mb-40">
+    <div className="min-h-screen bg-background text-foreground p-8 mt-24 -mb-60">
       <div className="flex justify-between items-center mb-20 px-32 -mx-20">
         {/* Left: Title & Description */}
         <div>

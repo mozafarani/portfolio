@@ -1,4 +1,4 @@
-import Navbar from "../components/Navbar";
+import Navbar from "../components/layout/Navbar";
 import "../styles/globals.css"; // Ensure Tailwind styles are imported
 
 function MyApp({ Component, pageProps }) {
