@@ -41,24 +41,16 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const timestamp = new Date().toISOString();
-
     try {
-      const res = await fetch(
-        "https://sheetdb.io/api/v1/2ntjrmbt4t7ex",
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            data: {
-              name: formData.name,
-              email: formData.email,
-              message: formData.message,
-              timestamp,
-            },
-          }),
-        }
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+        }),
+      });
 
       if (res.ok) {
         alert("Message sent successfully!");
@@ -68,6 +60,7 @@ export default function ContactSection() {
         try {
           const body = await res.json();
           if (typeof body?.error === "string") msg = body.error;
+          else if (typeof body?.message === "string") msg = body.message;
         } catch {
           /* ignore */
         }
