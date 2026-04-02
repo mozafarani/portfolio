@@ -1,27 +1,61 @@
+import Head from "next/head";
 import Hero from "../components/Hero";
-import ProjectsPage from "./projects";
-import ContactMe from "./contact";
 import Footer from "@/components/layout/Footer";
 import ExperienceSection from "../components/Experience/ExperienceSection";
+import Container from "../components/layout/Container";
+import Section from "../components/layout/Section";
+import ProjectsSection from "../components/Projects/ProjectsSection";
+import ContactSection from "../components/Contact/ContactSection";
 
 export default function Home() {
   return (
-    <div className="ml-2 sm:ml-4 lg:ml-6 xl:ml-8">
-      <div className="pt-4 sm:pt-6 md:pt-8 lg:pt-12 xl:pt-16">
-        <Hero />
-      </div>
-      <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16">
-        <ExperienceSection />
-      </div>
-      <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16">
-        <ProjectsPage />
-      </div>
-      <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16">
-        <ContactMe />
-      </div>
-      <div className="mt-4 sm:mt-6 md:mt-8 lg:mt-12 xl:mt-16">
-        <Footer/>
-      </div>
-    </div>
+    <>
+      <Head>
+        <title>Mohammed Alzafarani | QA Automation Engineer</title>
+        <meta
+          name="description"
+          content="Mohammed Alzafarani — QA Automation Engineer. UI, API, and E2E testing with Selenium, Cypress, Jest, and Mocha; Agile delivery and AI-assisted QA workflows."
+        />
+      </Head>
+      <main className="text-foreground">
+        <Section
+          id="top"
+          className="relative overflow-hidden pt-6 pb-5 sm:pt-8 sm:pb-6 md:pt-10 md:pb-8"
+        >
+          <Container className="relative">
+            <Hero />
+          </Container>
+        </Section>
+
+        <Section
+          id="experience"
+          className="pt-6 pb-7 sm:pt-7 sm:pb-9 md:pb-10"
+        >
+          <Container>
+            <ExperienceSection />
+          </Container>
+        </Section>
+
+        <Section
+          id="projects"
+          className="pt-6 pb-7 sm:pt-7 sm:pb-9 md:pb-10"
+        >
+          <Container>
+            <ProjectsSection />
+          </Container>
+        </Section>
+
+        <Section
+          id="contact"
+          className="pt-6 pb-10 sm:pt-7 sm:pb-12 md:pb-14"
+        >
+          <Container>
+            <ContactSection />
+          </Container>
+        </Section>
+
+        <Footer />
+      </main>
+    </>
   );
 }

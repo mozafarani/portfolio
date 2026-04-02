@@ -1,38 +1,37 @@
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaTwitter, FaDribbble } from "react-icons/fa";
+import Container from "./Container";
+
+const navLinkClass =
+  "text-sm text-mutedText transition hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/25 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
 const Navbar = () => {
   return (
-    <nav className="relative flex justify-between items-center px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12 py-3 sm:py-4 md:py-5 lg:py-6 bg-background text-foreground mb-4 sm:mb-6 md:mb-8 lg:mb-10">
-      {/* Left Side (Logo) */}
-
-      <Link
-        href="/"
-        className="mx-1 sm:mx-2 md:mx-4 lg:mx-6 xl:mx-10 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-bold flex items-center space-x-2 hover:text-primary transition"
-      >
-        <span>mozafarani/portfolio</span>
-      </Link>
-
-
-
-      {/* Right Side (Social Icons) */}
-      <div className="flex space-x-3 sm:space-x-4 md:space-x-6 lg:space-x-8 xl:space-x-9 text-lg sm:text-xl md:text-2xl lg:text-3xl">
-        <a
-          href="https://github.com/mozafarani"
-          className="hover:text-primary transition"
+    <nav className="sticky top-0 z-50 border-b border-borderSubtle/90 bg-background/85 backdrop-blur-md supports-[backdrop-filter]:bg-background/75">
+      <Container className="flex items-center justify-between gap-6 py-3.5 sm:py-4">
+        <Link
+          href="/"
+          className="shrink-0 font-mono text-xs text-foreground transition hover:text-foreground/85 sm:text-sm"
         >
-          <FaGithub />
-        </a>
-        <a
-          href="https://linkedin.com/in/mozafarani"
-          className="hover:text-primary transition"
-        >
-          <FaLinkedin />
-        </a>
-        <a href="https://twitter.com" className="hover:text-primary transition">
-          <FaTwitter />
-        </a>
-      </div>
+          mozafarani/portfolio
+        </Link>
+        <ul className="flex items-center gap-5 sm:gap-8" role="list">
+          <li>
+            <Link href="/#experience" className={navLinkClass}>
+              Work
+            </Link>
+          </li>
+          <li>
+            <Link href="/#projects" className={navLinkClass}>
+              Projects
+            </Link>
+          </li>
+          <li>
+            <Link href="/#contact" className={navLinkClass}>
+              Contact
+            </Link>
+          </li>
+        </ul>
+      </Container>
     </nav>
   );
 };

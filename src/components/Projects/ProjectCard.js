@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
+import Badge from "../ui/Badge";
 
 const ProjectCard = ({
   title,
@@ -11,68 +12,76 @@ const ProjectCard = ({
   technologies,
 }) => {
   return (
-    <div className="flex flex-col items-center w-full max-w-5xl">
-      <>
-        {image && (
-          <div className="relative w-full sm:w-[90%] md:w-[70%] h-[180px] sm:h-[220px] md:h-[250px] lg:h-[280px] xl:h-[300px] flex justify-center mb-6 sm:mb-8 md:mb-10 lg:mb-12 xl:mb-16">
-            <div className="w-full md:w-[80%] h-full overflow-hidden rounded-xl shadow-lg">
+    <article className="group grid gap-5 py-7 sm:grid-cols-[260px_1fr] sm:gap-7 sm:py-8 md:grid-cols-[280px_1fr]">
+      {image ? (
+        <div className="relative w-full shrink-0 sm:w-[260px] md:w-[280px]">
+          <div
+            className="relative w-full overflow-hidden rounded-ui border border-borderSubtle bg-surface/50 shadow-[inset_0_1px_0_0_rgba(255,255,255,0.04)]"
+          >
+            <div className="relative aspect-[16/10] w-full">
               <Image
                 src={image}
-                alt={title}
-                layout="fill"
-                objectFit="cover"
-                className="rounded-xl"
+                alt={`${title} preview`}
+                fill
+                sizes="(max-width: 640px) 100vw, 280px"
+                className="object-cover transition duration-300 ease-out group-hover:scale-[1.03] group-hover:brightness-105"
               />
             </div>
           </div>
-        )}
+        </div>
+      ) : null}
 
-        <div className="relative -mt-4 sm:-mt-6 md:-mt-8 lg:-mt-10 xl:-mt-12 bg-card p-3 sm:p-4 md:p-6 lg:p-8 rounded-xl shadow-xl w-[95%] sm:w-[90%] md:w-[80%] lg:w-[70%]">
-          <h3 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-heading font-extrabold text-left">
+      <div className="grid min-w-0 grid-cols-[auto_1fr] gap-x-3 sm:gap-x-4">
+        <div
+          className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-mutedText sm:mt-2"
+          aria-hidden
+        />
+        <div className="min-w-0">
+          <h3 className="font-heading text-base font-bold text-foreground sm:text-lg md:text-xl">
             {title}
           </h3>
-          <p className="text-foreground/80 text-xs sm:text-sm md:text-base lg:text-lg mt-3 sm:mt-4 text-left leading-relaxed">
+          <p className="mt-2 text-sm leading-relaxed text-mutedText sm:text-base">
             {description}
           </p>
 
-          {/* Technologies */}
-          <div className="flex flex-wrap gap-1.5 sm:gap-2 md:gap-3 mt-3 sm:mt-4 md:mt-6">
-            {technologies?.map((tech, index) => (
-              <span
-                key={index}
-                className="bg-foreground/10 text-foreground px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
+          {technologies?.length ? (
+            <div className="mt-3 flex flex-wrap gap-2">
+              {technologies.map((tech, index) => (
+                <Badge key={index} variant="outline">
+                  {tech}
+                </Badge>
+              ))}
+            </div>
+          ) : null}
 
-          {/* Links */}
-          <div className="mt-3 sm:mt-4 md:mt-6 flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4 md:gap-6">
+          <div className="mt-4 flex flex-wrap items-center gap-2">
             {!link || link === "#" ? (
-              <span className="text-primary font-semibold flex items-center gap-2 bg-primary/10 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm md:text-base">
+              <span className="rounded-ui border border-borderSubtle bg-surface/40 px-3 py-1.5 text-xs font-medium text-mutedText sm:text-sm">
                 Private
               </span>
             ) : (
               <Link
                 href={link}
-                className="text-primary font-semibold flex items-center gap-2 bg-primary/10 px-2 sm:px-3 md:px-4 py-1.5 sm:py-2 rounded-lg hover:bg-primary/20 transition text-xs sm:text-sm md:text-base"
+                className="inline-flex items-center gap-2 rounded-ui border border-foreground/35 bg-surface/50 px-3 py-2 text-sm font-medium text-foreground transition hover:border-foreground/55 hover:bg-surface sm:px-4 sm:py-2.5"
               >
-                Live Demo <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 md:w-5 md:h-5" />
+                Live demo
+                <ExternalLink className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
               </Link>
             )}
-            {github && (
+            {github ? (
               <Link
                 href={github}
-                className="text-mutedText flex items-center hover:text-foreground"
+                className="inline-flex items-center gap-2 rounded-ui border border-borderSubtle bg-surface/40 px-3 py-2 text-sm font-medium text-foreground transition hover:border-foreground/30 sm:px-4 sm:py-2.5"
+                aria-label="View on GitHub"
               >
-                <Github className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6" />
+                <Github className="h-4 w-4" />
+                <span className="hidden sm:inline">Source</span>
               </Link>
-            )}
+            ) : null}
           </div>
         </div>
-      </>
-    </div>
+      </div>
+    </article>
   );
 };
 
