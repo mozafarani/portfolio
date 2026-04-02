@@ -70,20 +70,20 @@ export default function ProjectsPage() {
     }
   };
   return (
-    <div className="min-h-screen bg-background text-foreground p-8 mt-24 -mb-60">
-      <div className="flex justify-between items-center mb-20 px-32 -mx-20">
+    <div className="min-h-screen bg-background text-foreground p-2 sm:p-4 md:p-6 lg:p-8 xl:p-12">
+      <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 xl:mb-20 px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-32 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-20">
         {/* Left: Title & Description */}
-        <div>
-          <h2 className="text-5xl font-bold text-left">Featured Projects</h2>
-          <p className="text-xl text-left text-foreground/70 mt-2">
+        <div className="mb-4 sm:mb-6 lg:mb-0">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-left">Featured Projects</h2>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-left text-foreground/70 mt-1 sm:mt-2">
             A collection of my best projects showcasing backend, frontend, and
             AI development.
           </p>
         </div>
 
-        {/* Right: Auto Scroll Toggle */}
-        <div className="flex items-center space-x-2">
-          <span className="text-foreground text-lg">Auto Scroll</span>
+        {/* Right: Auto Scroll Toggle - Hidden on mobile */}
+        <div className="hidden lg:flex items-center space-x-2">
+          <span className="text-foreground text-sm sm:text-base lg:text-lg xl:text-xl">Auto Scroll</span>
           <label className="relative inline-flex items-center cursor-pointer">
             <input
               type="checkbox"
@@ -91,10 +91,10 @@ export default function ProjectsPage() {
               onChange={() => setIsAutoScroll(!isAutoScroll)}
               className="sr-only peer"
             />
-            <div className="w-10 h-5 bg-gray-400 rounded-full peer-checked:bg-primary transition duration-300 relative">
+            <div className="w-8 h-4 sm:w-10 sm:h-5 bg-gray-400 rounded-full peer-checked:bg-primary transition duration-300 relative">
               <div
-                className={`absolute top-0.5 left-1 w-4 h-4 bg-white rounded-full shadow-md transition-transform duration-300 ${
-                  isAutoScroll ? "translate-x-5" : "translate-x-0"
+                className={`absolute top-0.5 left-1 w-3 h-3 sm:w-4 sm:h-4 bg-white rounded-full shadow-md transition-transform duration-300 ${
+                  isAutoScroll ? "translate-x-4 sm:translate-x-5" : "translate-x-0"
                 }`}
               ></div>
             </div>
@@ -102,11 +102,21 @@ export default function ProjectsPage() {
         </div>
       </div>
 
-      <div className="relative overflow-hidden group">
+      {/* Mobile: Stacked Cards */}
+      <div className="lg:hidden space-y-6 sm:space-y-8 md:space-y-10">
+        {projects.map((project, index) => (
+          <div key={index} className="w-full">
+            <ProjectCard {...project} />
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop: Scrollable Content */}
+      <div className="hidden lg:block relative overflow-hidden group">
         {/* Left Arrow */}
         <button
           onClick={() => scrollByPercentage(-50)}
-          className={`absolute left-0 top-1/2 -translate-y-1/2 bg-background/80 p-2 rounded-full shadow-md 
+          className={`absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 bg-background/80 p-1.5 sm:p-2 rounded-full shadow-md 
              hover:bg-primary transition duration-300 z-10 
              ${isAutoScroll ? "hidden" : "flex"}`}
         >
@@ -116,7 +126,7 @@ export default function ProjectsPage() {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="white"
-            className="w-6 h-6"
+            className="w-4 h-4 sm:w-6 sm:h-6"
           >
             <path
               strokeLinecap="round"
@@ -129,7 +139,7 @@ export default function ProjectsPage() {
         {/* Right Arrow */}
         <button
           onClick={() => scrollByPercentage(50)}
-          className={`absolute right-0 top-1/2 -translate-y-1/2 bg-background/80 p-2 rounded-full shadow-md 
+          className={`absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 bg-background/80 p-1.5 sm:p-2 rounded-full shadow-md 
              hover:bg-primary transition duration-300 z-10 
              ${isAutoScroll ? "hidden" : "flex"}`}
         >
@@ -139,7 +149,7 @@ export default function ProjectsPage() {
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="white"
-            className="w-6 h-6"
+            className="w-4 h-4 sm:w-6 sm:h-6"
           >
             <path
               strokeLinecap="round"
@@ -152,7 +162,7 @@ export default function ProjectsPage() {
         {/* Scrollable Content */}
         <div
           ref={scrollRef}
-          className={`flex space-x-6 ${
+          className={`flex space-x-4 sm:space-x-6 ${
             isAutoScroll ? "animate-scroll" : "overflow-x-auto scrollbar-hide"
           }`}
         >

@@ -31,21 +31,32 @@ export default function ExperienceSection() {
   };
 
   return (
-    <div className="min-h-[60vh] bg-background text-foreground p-8 mt-24">
-      <div className="flex justify-between items-center mb-20 px-32 -mx-20">
+    <div className="min-h-[60vh] bg-background text-foreground p-2 sm:p-4 md:p-6 lg:p-8 xl:p-12">
+      <div className="flex justify-between items-center mb-6 sm:mb-8 md:mb-12 lg:mb-16 xl:mb-20 px-2 sm:px-4 md:px-8 lg:px-12 xl:px-16 2xl:px-32 -mx-2 sm:-mx-4 md:-mx-8 lg:-mx-12 xl:-mx-16 2xl:-mx-20">
         <div>
-          <h2 className="text-5xl font-bold text-left">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-left">
             Work Experience
           </h2>
-          <p className="text-xl text-left text-foreground/70 mt-2">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-left text-foreground/70 mt-1 sm:mt-2">
             A snapshot of my recent roles, impact, and the technologies I used.
           </p>
         </div>
       </div>
-      <div className="relative overflow-hidden group">
+      
+      {/* Mobile: Stacked Cards */}
+      <div className="lg:hidden space-y-6 sm:space-y-8 md:space-y-10">
+        {experiences.map((exp, index) => (
+          <div key={index} className="w-full">
+            <ExperienceCard {...exp} />
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop: Scrollable Content */}
+      <div className="hidden lg:block relative overflow-hidden group">
         <div
           ref={scrollRef}
-          className="flex space-x-6 overflow-x-auto scrollbar-hide"
+          className="flex space-x-4 sm:space-x-6 overflow-x-auto scrollbar-hide"
         >
           {experiences.map((exp, index) => (
             <div key={index} className="flex-shrink-0 w-full max-w-4xl">

@@ -48,20 +48,20 @@ export default function ContactMe() {
   
 
   return (
-    <div className="relative flex items-center justify-between min-h-screen mx-10 -my-10 text-foreground px-12">
-      <div className="max-w-3xl w-full space-y-6">
+    <div className="relative flex flex-col lg:flex-row items-center justify-between min-h-[80vh] lg:min-h-screen mx-2 sm:mx-4 md:mx-6 lg:mx-8 xl:mx-12 text-foreground px-2 sm:px-4 md:px-6 lg:px-8 xl:px-12">
+      <div className="max-w-3xl w-full space-y-3 sm:space-y-4 md:space-y-6 mb-4 sm:mb-6 lg:mb-0">
         {/* Contact Title */}
-        <h2 className="text-5xl font-bold text-left">Let&apos;s Connect</h2>
-        <p className="text-xl text-left text-foreground/70">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-left">Let&apos;s Connect</h2>
+        <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-left text-foreground/70">
           Have a project in mind or just want to say hi? Fill out the form
           below, and I&apos;ll get back to you!
         </p>
 
         {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 md:space-y-6">
           {/* Name Input */}
           <div>
-            <label className="block text-lg font-medium text-foreground">
+            <label className="block text-sm sm:text-base md:text-lg font-medium text-foreground">
               Name
             </label>
             <input
@@ -69,14 +69,14 @@ export default function ContactMe() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="mt-2 w-full p-3 border border-foreground/20 rounded-lg bg-background focus:ring-2 focus:ring-primary focus:outline-none"
+              className="mt-1 sm:mt-2 w-full p-2 sm:p-2.5 md:p-3 border border-foreground/20 rounded-lg bg-background focus:ring-2 focus:ring-primary focus:outline-none text-sm sm:text-base"
               required
             />
           </div>
 
           {/* Email Input */}
           <div>
-            <label className="block text-lg font-medium text-foreground">
+            <label className="block text-sm sm:text-base md:text-lg font-medium text-foreground">
               Email
             </label>
             <input
@@ -84,14 +84,14 @@ export default function ContactMe() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="mt-2 w-full p-3 border border-foreground/20 rounded-lg bg-background focus:ring-2 focus:ring-primary focus:outline-none"
+              className="mt-1 sm:mt-2 w-full p-2 sm:p-2.5 md:p-3 border border-foreground/20 rounded-lg bg-background focus:ring-2 focus:ring-primary focus:outline-none text-sm sm:text-base"
               required
             />
           </div>
 
           {/* Message Input */}
           <div>
-            <label className="block text-lg font-medium text-foreground">
+            <label className="block text-sm sm:text-base md:text-lg font-medium text-foreground">
               Message
             </label>
             <textarea
@@ -99,7 +99,7 @@ export default function ContactMe() {
               value={formData.message}
               onChange={handleChange}
               rows="4"
-              className="mt-2 w-full p-3 border border-foreground/20 rounded-lg bg-background focus:ring-2 focus:ring-primary focus:outline-none"
+              className="mt-1 sm:mt-2 w-full p-2 sm:p-2.5 md:p-3 border border-foreground/20 rounded-lg bg-background focus:ring-2 focus:ring-primary focus:outline-none text-sm sm:text-base"
               required
             ></textarea>
           </div>
@@ -107,18 +107,18 @@ export default function ContactMe() {
           {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-3 bg-primary text-white rounded-lg font-semibold text-lg shadow-md hover:bg-primary/80 transition"
+            className="w-full py-2 sm:py-2.5 md:py-3 bg-primary text-white rounded-lg font-semibold text-sm sm:text-base md:text-lg shadow-md hover:bg-primary/80 transition"
           >
             Send Message
           </button>
         </form>
       </div>
-      <div className="w-full md:w-1/2 flex flex-col items-center">
-        <div className="bg-gray-800 text-white p-6 rounded-lg shadow-lg text-center w-full max-w-3xl">
-          <p className="text-2xl italic">&quot;{quote}&quot;</p>
+      <div className="w-full lg:w-1/2 flex flex-col items-center">
+        <div className="bg-gray-800 text-white p-3 sm:p-4 md:p-6 rounded-lg shadow-lg text-center w-full max-w-3xl">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl italic">&quot;{quote}&quot;</p>
         </div>
 
-        <div className="flex justify-center space-x-6 text-4xl font-medium mt-10">
+        <div className="flex justify-center space-x-3 sm:space-x-4 md:space-x-6 text-xl sm:text-2xl md:text-3xl lg:text-4xl font-medium mt-3 sm:mt-4 md:mt-6 lg:mt-8">
           <a
             href="https://github.com/mozafarani"
             className="hover:text-primary transition"

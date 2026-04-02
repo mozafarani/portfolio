@@ -20,7 +20,7 @@ const ProfileSlideshow = () => {
   }, []);
 
   return (
-    <div className="relative w-[350px] h-[350px] rounded-lg overflow-hidden shadow-lg">
+    <div className="relative w-[200px] h-[200px] sm:w-[250px] sm:h-[250px] md:w-[280px] md:h-[280px] lg:w-[320px] lg:h-[320px] xl:w-[350px] xl:h-[350px] rounded-lg overflow-hidden shadow-lg">
       {images.map((src, index) => (
         <div
           key={index}
