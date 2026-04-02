@@ -59,7 +59,7 @@ export default function ProjectsSection() {
       <SectionHeader
         eyebrow="Selected work"
         title="Projects"
-        description="Side projects and academic work—web, APIs, and test-driven quality."
+        description="Side projects and academic work, web, APIs, and test-driven quality."
       />
 
       <div className="mt-1 divide-y divide-borderSubtle">

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { scrollToSectionId } from "@/utils/sectionScroll";
 
 const base =
   "inline-flex items-center justify-center rounded-ui font-medium text-center transition focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary";
@@ -16,17 +17,29 @@ const variants = {
 
 export default function ButtonLink({
   href,
+  sectionId,
   variant = "primary",
   className = "",
   children,
   ...props
 }) {
+  const combinedClassName = `${base} ${variants[variant] ?? variants.primary} ${className}`.trim();
+
+  if (sectionId) {
+    return (
+      <button
+        type="button"
+        className={combinedClassName}
+        onClick={() => scrollToSectionId(sectionId)}
+        {...props}
+      >
+        {children}
+      </button>
+    );
+  }
+
   return (
-    <Link
-      href={href}
-      className={`${base} ${variants[variant] ?? variants.primary} ${className}`.trim()}
-      {...props}
-    >
+    <Link href={href} className={combinedClassName} {...props}>
       {children}
     </Link>
   );

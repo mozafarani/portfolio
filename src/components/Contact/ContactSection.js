@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import SectionHeader from "../layout/SectionHeader";
 import { Button } from "../ui/Button";
 import Field from "../ui/Field";
@@ -41,16 +41,39 @@ export default function ContactSection() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    const timestamp = new Date().toISOString();
 
-    if (res.ok) {
-      alert("Message sent successfully!");
-      setFormData({ name: "", email: "", message: "" });
-    } else {
+    try {
+      const res = await fetch(
+        "https://sheetdb.io/api/v1/2ntjrmbt4t7ex",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            data: {
+              name: formData.name,
+              email: formData.email,
+              message: formData.message,
+              timestamp,
+            },
+          }),
+        }
+      );
+
+      if (res.ok) {
+        alert("Message sent successfully!");
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        let msg = "Failed to send message.";
+        try {
+          const body = await res.json();
+          if (typeof body?.error === "string") msg = body.error;
+        } catch {
+          /* ignore */
+        }
+        alert(msg);
+      }
+    } catch {
       alert("Failed to send message.");
     }
   };
@@ -135,9 +158,6 @@ export default function ContactSection() {
                 label="LinkedIn"
               >
                 <FaLinkedin />
-              </IconLink>
-              <IconLink href="https://twitter.com" label="Twitter">
-                <FaTwitter />
               </IconLink>
             </div>
           </div>

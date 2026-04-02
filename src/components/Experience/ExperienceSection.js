@@ -4,14 +4,14 @@ import SectionHeader from "../layout/SectionHeader";
 const experiences = [
   {
     role: "Software Developer in Test (SDET)",
-    company: "Future Career Canada",
+    company: "Future Career",
     duration: "Jan 2025 – Present · Canada",
     description:
       "Own E2E strategy for a 7+ module product: Selenium POM, Cypress, and 50+ UI checks; per-sprint REST coverage on 17+ endpoints with SQL-backed assertions.",
   },
   {
     role: "QA Automation Engineer",
-    company: "Dominarlo Publishing Canada",
+    company: "Dominarlo Publishing",
     duration: "Feb 2024 – Jan 2025 · Canada",
     description:
       "Legacy migration quality: partnered in sprint planning, grew 150+ Mocha/Chai backend tests and 40+ React unit suites to catch regressions early.",

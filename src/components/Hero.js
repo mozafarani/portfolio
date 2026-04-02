@@ -32,15 +32,15 @@ const Hero = () => {
         </h1>
 
         <p className="mt-3 max-w-2xl text-sm leading-relaxed text-mutedText sm:text-base md:text-lg lg:max-w-none">
-          QA Automation Engineer — UI, API &amp; E2E testing across Agile teams.
+          QA Automation Engineer, UI, API &amp; E2E testing across Agile teams.
           Selenium, Cypress, Jest, and AI-assisted workflows.
         </p>
 
         <div className="mt-5 flex flex-col gap-2.5 sm:flex-row sm:gap-3">
-          <ButtonLink href="/#projects" variant="outlineNeutral">
+          <ButtonLink sectionId="projects" variant="outlineNeutral">
             View work
           </ButtonLink>
-          <ButtonLink href="/#contact" variant="outlineNeutralMuted">
+          <ButtonLink sectionId="contact" variant="outlineNeutralMuted">
             Contact me
           </ButtonLink>
         </div>

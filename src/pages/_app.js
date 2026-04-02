@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useRouter } from "next/router";
 import { Inter, Poppins } from "next/font/google";
 import Navbar from "../components/layout/Navbar";
 import "../styles/globals.css"; // Ensure Tailwind styles are imported
@@ -17,32 +15,7 @@ const poppins = Poppins({
   display: "swap",
 });
 
-function scrollToHash() {
-  const hash = typeof window !== "undefined" ? window.location.hash : "";
-  if (!hash || hash.length < 2) return;
-  const id = decodeURIComponent(hash.slice(1));
-  requestAnimationFrame(() => {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "start" });
-  });
-}
-
 function MyApp({ Component, pageProps }) {
-  const router = useRouter();
-
-  useEffect(() => {
-    if (!router.isReady) return;
-
-    scrollToHash();
-    router.events.on("routeChangeComplete", scrollToHash);
-    window.addEventListener("hashchange", scrollToHash);
-    return () => {
-      router.events.off("routeChangeComplete", scrollToHash);
-      window.removeEventListener("hashchange", scrollToHash);
-    };
-  }, [router, router.isReady]);
-
   return (
     <div
       className={`${inter.variable} ${poppins.variable} relative min-h-screen overflow-x-clip bg-background font-sans text-foreground`}

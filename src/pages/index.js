@@ -14,7 +14,7 @@ export default function Home() {
         <title>Mohammed Alzafarani | QA Automation Engineer</title>
         <meta
           name="description"
-          content="Mohammed Alzafarani — QA Automation Engineer. UI, API, and E2E testing with Selenium, Cypress, Jest, and Mocha; Agile delivery and AI-assisted QA workflows."
+          content="Mohammed Alzafarani, QA Automation Engineer. UI, API, and E2E testing with Selenium, Cypress, Jest, and Mocha; Agile delivery and AI-assisted QA workflows."
         />
       </Head>
       <main className="text-foreground">

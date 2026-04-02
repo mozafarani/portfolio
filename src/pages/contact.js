@@ -1,10 +1,15 @@
 import { useEffect } from "react";
 import Head from "next/head";
+import { useRouter } from "next/router";
+import { navigateHomeAndScroll } from "@/utils/sectionScroll";
 
 export default function ContactPage() {
+  const router = useRouter();
+
   useEffect(() => {
-    window.location.replace("/#contact");
-  }, []);
+    const cleanup = navigateHomeAndScroll(router, "contact");
+    return cleanup;
+  }, [router]);
 
   return (
     <>
